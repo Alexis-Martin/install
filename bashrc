@@ -99,5 +99,13 @@ export MANPAGER="most"
 if [ -n "$DISPLAY" ]; then
   xset b off
 fi
+export PATH=$PATH:~/.local/bin
 
-PATH=$PATH:"$HOME"/bin
+#if [ -f ~/.local/bin/trello ]; then
+#  echo "yes"
+#  trello &
+#fi
+
+export PYTHONPATH=~/src/eVsoft_tools/FrameUtils:~/src/Stereopsys/src/:~/src/Stereopsys/3rdParty/python-zwoasi/
+PATH=$PATH:/home/alexis/src/flatbuffers
+PATH=$PATH:/home/alexis/src/toolchain/bin

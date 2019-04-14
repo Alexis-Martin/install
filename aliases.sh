@@ -1,15 +1,29 @@
-export EDITOR='vim'
+export EDITOR='emacs --no-window'
+alias ealias='emacs --no-window ~/.aliases.sh'
+alias as='astyle --style=mozilla --indent=tab --add-braces --attach-closing-while --align-pointer=name --keep-one-line-blocks'
+alias evbuild="./build.sh target-clean && ./build.sh evsoft-dirclean && ./build.sh"
+alias evinstall="./build.sh install-to-pi"
+alias devbuild="./build-dev.sh target-clean && ./build-dev.sh evsoft-dirclean && ./build-dev.sh"
+alias sshlist='cat ~/.ssh/config'
+alias evsshadd='ssh-add ~/.ssh/id_pi_rsa'
+alias rmevlog='ssh evscope "rm -rf /media/rw/EnhancedVision_* /media/rw/Raw_* /media/rw/evsoft_*"'
+alias cpevdata='rsync -avzz evscope:/media/rw/' #+ nom du dossier output
+alias evalias='cat /home/alexis/src/eVsoft/board/evscope/overlay/etc/profile.d/aliases.sh'
+alias evstream='/home/alexis/src/eVsoft_tools/zmq/zmq_sub tcp://192.168.100.1:13009 | /home/alexis/src/eVsoft_tools/zmq/szbuf2frm | ffplay -probesize 128 -framerate 60/1 - > /dev/null 2>&1'
+alias datetoevscope='ssh evscope date -us @`( date -u +"%s" )`'
 alias in='sudo apt-get install -y'
 alias out='sudo apt-get purge'
 alias q='exit'
-alias up='sudo apt-get update && sudo apt-get -y dist-upgrade'
+alias up='sudo apt-get update && sudo apt-get upgrade'
 alias d='wget -c'
 alias c='clear'
 alias cl='sudo apt-get clean;sudo apt-get -y autoremove --purge; sudo apt-get -y purge `deborphan`'
 alias m='mount | column -t'
-alias l='ls -lah --color'
+alias l='ls -lAh --color'
 alias sl='sudo ls -lah --color'
-alias ll='ls -lah --color'
+alias ll='ls -lAh --color'
+alias ls='ls --color'
+alias lt='ls -t'
 alias h='htop'
 alias df='df -h'
 alias grep='grep --color'
@@ -31,6 +45,8 @@ alias gg='git grep -i'
 alias gcp='git cherry-pick'
 alias gr='git remote -v'
 alias gf='git fetch -p'
+alias enw='emacs --no-window'
+alias e='emacs'
 alias ri='repo info'
 alias rs='repo sync -j8'
 alias ru='repo upload'
@@ -71,9 +87,51 @@ alias pt='ping -c1 google.de'
 alias xr='xrandr --output HDMI-1 --same-as eDP-1 --output eDP-1 --mode 1920x1080'
 alias cc='sync; echo 3 | sudo tee /proc/sys/vm/drop_caches'
 alias dds='sudo pkill -USR1 dd'
+alias vpn='sudo openvpn /home/alexis/VpnUnistellarConfig.ovpn'
 
-function PushDateUtc() {
-  ssh $1 date -us @`( date -u +"%s" )`
+function myscreen(){
+  res DP-1-1 1280x1024 DP-1-2 1280x1024 eDP-1 1600x900 
+}
+
+function res(){
+  if [ $6 ] ; then
+    width1="$(echo $2 | cut -dx -f1)"
+    width2="$(echo $4 | cut -dx -f1)"
+    (( width2 += width1 ))
+    xrandr --output $1 --mode $2 --pos 0x0 --output $3 --mode $4 --pos ${width1}x0 --output $5 --mode $6 --pos ${width2}x0
+  else
+    if [ $4 ] ; then
+      width="$(echo $2 | cut -dx -f1)" 
+      xrandr --output $1 --mode $2 --primary --pos 0x0 --output $3 --mode $4 --pos ${width}x0
+    else
+      if [ $2 ] ; then
+	xrandr --output $1 --mode $2
+      else
+	if [ $1 ] ; then
+	  xrandr --output eDP-1 --mode $1
+	else
+	  xrandr
+	fi
+      fi
+    fi
+  fi
+}
+
+function connect(){
+    if [ $1 ] ; then
+        sudo dhclient -v $1
+    else
+        sudo dhclient -v enx106530018c34
+    fi
+}
+
+function wifi(){
+  if [ $1 ] ; then
+    nmcli d wifi connect $1 password $2 iface wlp2s0
+  else
+    sudo iwlist wlp2s0 scan | grep ESSID
+  fi
+
 }
 
 function mkc() {
@@ -190,4 +248,8 @@ function servethis() {
 
 function re() {
   sudo ifconfig $1 down; sudo ifconfig $1 up
+}
+
+function setenv(){
+  source ~/.setenv.sh
 }
