@@ -37,6 +37,12 @@ sudo [ ! -h /root/.config/htop/htoprc ] && sudo ln -s $PWD/htoprc /root/.config/
 sudo [ -f /root/.vimrc ] && sudo rm /root/.vimrc
 sudo [ ! -h /root/.vimrc ] && sudo ln -s $PWD/vimrc /root/.vimrc
 
+#EMACS
+[ -f ~/.emacs ] && rm ~/.emacs
+[ ! -h ~/.emacs ] && ln -s $PWD/emacs ~/.emacs
+sudo [ -f /root/.emacs ] && sudo rm /root/.emacs
+sudo [ ! -h /root/.emacs ] && sudo ln -s $PWD/emacs /root/.emacs
+
 #BASH
 [ ! -h ~/.aliases.sh ] && ln -s $PWD/aliases.sh ~/.aliases.sh
 sudo [ ! -h /root/.aliases.sh ] && sudo ln -s $PWD/aliases.sh /root/.aliases.sh
