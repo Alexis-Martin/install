@@ -36,15 +36,15 @@ Return a list of installed packages or nil for every skipped package."
 
 
 (package-initialize)
-  
+
 ;; make indentation commands use space only (never tab character)
 (setq-default indent-tabs-mode nil)
 ;; set default tab char's display width to 4 spaces
-(setq-default tab-width 2)  
+(setq-default tab-width 2)
 (setq indent-line-function 'insert-tab)
-  
+
 (smart-tabs-advice python-indent-line-1 python-indent)
-  
+
 (add-hook 'c-mode-common-hook
 					(lambda () (setq indent-tabs-mode t)))
 (add-hook 'c++-mode-common-hook
@@ -87,27 +87,27 @@ Return a list of installed packages or nil for every skipped package."
 
 ;; disable menu bar
 (menu-bar-mode -1)
-  
+
 ;; default font size
 (set-face-attribute 'default nil :height 80)
 
 ;; default font source code
 (set-face-attribute 'default t :font "source code pro" )
-  
+
 ;; Set the directory where recovery files will be saved
 (setq backup-directory-alist `(("." . "~/.recovery_emacs")))
 
 ;; set the default width to 90 columns
 (setq fill-column 90)
 
-;; add the column number in the line counter 
+;; add the column number in the line counter
 (setq column-number-mode t)
 
 ;; display line numbers
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
 
-(global-linum-mode 1) ; always show line numbers
+;; (global-linum-mode 1) ; always show line numbers
 
 ;; auto close bracket insertion. New in emacs 24
 (electric-pair-mode 1)
@@ -118,6 +118,8 @@ Return a list of installed packages or nil for every skipped package."
 ;; show trailing whitespace
 (global-whitespace-mode)
 
+;; reload automaticaly all file when they change on disk
+(global-auto-revert-mode t)
 
 ;; insert ISO timestamp
 (defun insert-current-time ()
@@ -135,7 +137,7 @@ Return a list of installed packages or nil for every skipped package."
 
 ;; auto refresh buffers when they change on disk
 ;; (setq global-auto-revert-mode f)
-  
+
 ;;add path to mu4e
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 
@@ -149,6 +151,7 @@ Return a list of installed packages or nil for every skipped package."
    See https://emacs.stackexchange.com/questions/30673
    Adapted from `which-function' in https://github.com/typester/emacs/blob/master/lisp/progmodes/which-func.el"
   (interactive)
+  (condition-case nil (imenu-add-to-menubar "functions") (error nil))
   (imenu--cleanup)
   (setq imenu--index-alist nil)
   (imenu--make-index-alist)
