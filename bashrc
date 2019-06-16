@@ -106,6 +106,9 @@ export PATH=$PATH:~/.local/bin
 #  trello &
 #fi
 
-export PYTHONPATH=~/src/eVsoft_tools/FrameUtils:~/src/Stereopsys/src/:~/src/Stereopsys/3rdParty/python-zwoasi/
+export PYTHONPATH=~/src/eVsoft_tools/FrameUtils:~/src/Stereopsys/src/:~/src/Stereopsys/3rdParty/python-zwoasi/:~/src/utils
 PATH=$PATH:/home/alexis/src/flatbuffers
 PATH=$PATH:/home/alexis/src/toolchain/bin
+PATH=$PATH:/home/alexis/sbin
+
+export PATH="$PATH:"/opt/microchip/xc16/v1.35/bin""
