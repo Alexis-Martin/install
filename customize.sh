@@ -37,6 +37,29 @@ sudo [ ! -h /root/.config/htop/htoprc ] && sudo ln -s $PWD/htoprc /root/.config/
 sudo [ -f /root/.vimrc ] && sudo rm /root/.vimrc
 sudo [ ! -h /root/.vimrc ] && sudo ln -s $PWD/vimrc /root/.vimrc
 
+#FONT SOURCE CODE PRO
+FONT_HOME=~/.fonts # actually this path is better : ~/.local/share/fonts
+FONT_ROOT=/root/.local/share/fonts
+
+mkdir -p "$FONT_HOME/adobe-fonts/source-code-pro"
+sudo mkdir -p "$FONT_ROOT/adobe-fonts/source-code-pro"
+
+(git clone \
+   --branch release \
+   --depth 1 \
+   'https://github.com/adobe-fonts/source-code-pro.git' \
+   "$FONT_HOME/adobe-fonts/source-code-pro" && \
+fc-cache -f -v "$FONT_HOME/adobe-fonts/source-code-pro")
+
+(sudo git clone \
+   --branch release \
+   --depth 1 \
+   'https://github.com/adobe-fonts/source-code-pro.git' \
+   "$FONT_ROOT/adobe-fonts/source-code-pro" && \
+sudo fc-cache -f -v "$FONT_ROOT/adobe-fonts/source-code-pro")
+
+
+
 #EMACS
 [ -f ~/.emacs ] && rm ~/.emacs
 [ ! -h ~/.emacs ] && ln -s $PWD/emacs ~/.emacs
