@@ -1,11 +1,14 @@
 export EDITOR='emacs --no-window'
 alias ealias='emacs --no-window ~/.aliases.sh'
-alias as='astyle --style=mozilla --indent=tab --add-braces --attach-closing-while --align-pointer=name --keep-one-line-blocks'
-alias evbuild="./build.sh target-clean && ./build.sh evsoft-dirclean && ./build.sh"
+alias as='astyle --style=mozilla --indent=tab --attach-closing-while --align-pointer=name --keep-one-line-blocks --pad-header'
+alias evbuild="./build.sh dirclean-all && ./build.sh"
+alias evrebuild="./build-default.sh target-clean && ./build-default.sh evsoft-dirclean && ./build-default.sh"
 alias evinstall="./build.sh install-to-pi"
-alias devbuild="./build-dev.sh target-clean && ./build-dev.sh evsoft-dirclean && ./build-dev.sh"
+alias devrebuild="./build-dev.sh target-clean && ./build-dev.sh evsoft-dirclean && ./build-dev.sh"
 alias sshlist='cat ~/.ssh/config'
 alias evsshadd='ssh-add ~/.ssh/id_pi_rsa'
+alias cpevdb='cp ./afdstarmap.db /home/alexis/src/eVsoft/buildroot/output/build/dataro'
+alias scpevdb='scp evscope:/media/ro/afdstarmap.db /home/alexis/src/eVsoft/buildroot/output/build/dataro'
 alias rmevlog='ssh evscope "rm -rf /media/rw/EnhancedVision_* /media/rw/Raw_* /media/rw/evsoft_*"'
 alias cpevdata='rsync -avzz evscope:/media/rw/' #+ nom du dossier output
 alias evalias='cat /home/alexis/src/eVsoft/board/evscope/overlay/etc/profile.d/aliases.sh'
