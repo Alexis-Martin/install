@@ -46,14 +46,25 @@ Return a list of installed packages or nil for every skipped package."
 (smart-tabs-advice python-indent-line-1 python-indent)
 
 (add-hook 'c-mode-common-hook
-					(lambda () (setq indent-tabs-mode t)))
+					(lambda ()
+              (add-hook 'before-save-hook 'delete-trailing-whitespace)
+              (setq indent-tabs-mode t)
+          ))
 (add-hook 'c++-mode-common-hook
-					(lambda () (setq indent-tabs-mode t)))
+					(lambda ()
+              (add-hook 'before-save-hook 'delete-trailing-whitespace)
+              (setq indent-tabs-mode t)
+          ))
+
 (add-hook 'python-mode-hook
 					(lambda ()
+              (add-hook 'before-save-hook 'delete-trailing-whitespace)
               (setq indent-tabs-mode nil)
               (setq tab-width 4)
           ))
+
+(add-hook 'python-mode-hook
+  (lambda () ))
 
 (smart-tabs-insinuate 'c 'c++)
 
@@ -138,9 +149,6 @@ Return a list of installed packages or nil for every skipped package."
 ;; auto refresh buffers when they change on disk
 ;; (setq global-auto-revert-mode f)
 
-;;add path to mu4e
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
-
 (global-set-key "\C-x\w" "\C-a\C- \C-n\M-w")
 
 ;;Go to next/previous function
@@ -181,3 +189,6 @@ Return a list of installed packages or nil for every skipped package."
 
 (global-set-key "\M-n" (lambda() (interactive) (goto-closest-imenu-item 1)))
 (global-set-key "\M-p" (lambda() (interactive) (goto-closest-imenu-item -1)))
+
+;;add path to mu4e
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
