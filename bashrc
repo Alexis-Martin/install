@@ -112,3 +112,8 @@ PATH=$PATH:/home/alexis/src/toolchain/bin
 PATH=$PATH:/home/alexis/sbin
 
 export PATH="$PATH:"/opt/microchip/xc16/v1.35/bin""
+
+# parse_git_branch() {
+#      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+# }
+# export PS1="\e[1m\e[92m\u@\h:\[\033[34m\]\w\e[0m]\[\033[33m\]\$(parse_git_branch)\[\033[00m\]$ "
