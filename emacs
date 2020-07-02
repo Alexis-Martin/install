@@ -32,7 +32,7 @@ Return a list of installed packages or nil for every skipped package."
 (or (file-exists-p package-user-dir)
     (package-refresh-contents))
 
-(ensure-package-installed 'company-lua 'company 'f 'ghub 'graphql 'let-alist 'lua-mode 'magit 'git-commit 'magit-popup 'dash 'monokai-theme 's 'smart-tabs-mode 'treepy 'with-editor 'async) ;  --> (nil nil) if iedit and magit are already installed
+(ensure-package-installed 'company-lua 'company 'f 'ghub 'graphql 'let-alist 'lua-mode 'magit 'git-commit 'magit-popup 'dash 'monokai-theme 's 'smart-tabs-mode 'treepy 'with-editor 'async 'ein);  --> (nil nil) if iedit and magit are already installed
 
 
 (package-initialize)
@@ -79,7 +79,7 @@ Return a list of installed packages or nil for every skipped package."
  '(fringe-mode 0 nil (fringe))
  '(package-selected-packages
    (quote
-    (smart-tabs-mode magit company-lua company lua-mode monokai-theme)))
+    (request websocket ein smart-tabs-mode magit company-lua company lua-mode monokai-theme)))
  '(tab-stop-list (quote (2 4 6)))
  '(tool-bar-mode nil)
  '(tooltip-mode nil)

@@ -8,9 +8,11 @@ case $- in
 	*) return;;
 esac
 
+set completion-ignore-case on
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-#HISTCONTROL=ignoreboth
+HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -106,14 +108,30 @@ export PATH=$PATH:~/.local/bin
 #  trello &
 #fi
 
-export PYTHONPATH=~/src/eVsoft_tools/FrameUtils:~/src/Stereopsys/src/:~/src/Stereopsys/3rdParty/python-zwoasi/:~/src/utils
+export PYTHONPATH=~/src/eVsoft_tools/FrameUtils:~/src/Stereopsys/src/:~/src/Stereopsys/3rdParty/python-zwoasi/:~/src/utils:~/src
 PATH=$PATH:/home/alexis/src/flatbuffers
 PATH=$PATH:/home/alexis/src/toolchain/bin
-PATH=$PATH:/home/alexis/sbin
-
-export PATH="$PATH:"/opt/microchip/xc16/v1.35/bin""
+PATH=$PATH:/home/alexis/sbin:/home/alexis/bin
+PATH=$PATH:/opt/microchip/xc16/v1.35/bin
 
 # parse_git_branch() {
 #      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 # }
 # export PS1="\e[1m\e[92m\u@\h:\[\033[34m\]\w\e[0m]\[\033[33m\]\$(parse_git_branch)\[\033[00m\]$ "
+
+# export SPOC_HOME=/home/alexis/src/spoc
+# export PYTHONPATH=/home/alexis/src/eVsoft_tools/FrameUtils:/home/alexis/src/utils:/home/alexis/src/spoc:/home/alexis/src/pipeline/utils/bkgSubstractor
+
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.7
+
+function spocenv() {
+    export WORKON_HOME=/home/alexis/venvs
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.7
+    source /home/alexis/.local/bin/virtualenvwrapper.sh
+    workon spoc
+} 
+
+function djangoenv() {
+    source /home/alexis/venvs/djangoenv/bin/activate
+} 
+
