@@ -1,0 +1,10 @@
+jupyter==1.0.0
+jupyter-client==5.3.4
+jupyter-console==6.0.0
+jupyter-core==4.6.1
+jupyterlab==1.2.6
+jupyterlab-server==1.0.6
+jupyterlab-templates==0.2.3
+jupyterthemes==0.20.0
+notebook==6.0.3
+progressbar==2.5

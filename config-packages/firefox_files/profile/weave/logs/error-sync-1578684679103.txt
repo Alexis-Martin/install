@@ -1,0 +1,67 @@
+1578646907784	Sync.LogManager	DEBUG	Flushing file log
+1578646907797	Sync.LogManager	DEBUG	Log cleanup threshold time: 1577782907797
+1578646907839	Sync.LogManager	DEBUG	Done deleting files.
+1578646908762	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578646909813	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578646911188	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578646912811	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578661453734	addons.xpi	WARN	disabling legacy extension {E6C1199F-E687-42da-8C24-E7770CC3AE66}
+1578661453737	addons.xpi	WARN	disabling legacy extension {4BBDD651-70CF-4821-84F8-2B918CF89CA3}
+1578661453763	addons.xpi	WARN	disabling legacy extension {E6C1199F-E687-42da-8C24-E7770CC3AE66}
+1578661453763	addons.xpi	WARN	disabling legacy extension {4BBDD651-70CF-4821-84F8-2B918CF89CA3}
+1578661573476	addons.xpi	WARN	disabling legacy extension {E6C1199F-E687-42da-8C24-E7770CC3AE66}
+1578661573645	addons.xpi	WARN	disabling legacy extension {4BBDD651-70CF-4821-84F8-2B918CF89CA3}
+1578663937175	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578663938875	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578663940036	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578663942716	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578663944481	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578663945804	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578672369342	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578672370953	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578672372898	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578672379920	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578672383982	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578672385535	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578672618653	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578672620111	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578672621728	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578677265908	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578677268875	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578677270048	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578678176080	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578678182954	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578678184481	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578678296648	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578678298153	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578678299776	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578684671397	Sync.SyncScheduler	DEBUG	Network link status changed to "down". Offline?: false
+1578684671401	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1578684671407	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1578684672555	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578684679089	Sync.SyncScheduler	DEBUG	Network link status changed to "up". Offline?: false
+1578684679090	Sync.SyncScheduler	DEBUG	Network link looks up. Syncing.
+1578684679091	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1578684679092	Sync.Service	DEBUG	User-Agent: Firefox/60.8.0 (Linux x86_64) FxSync/1.62.0.20190709221323.desktop
+1578684679092	Sync.Service	INFO	Starting sync at 2020-01-10 20:31:19 in browser session bWQYAnJjUPO0
+1578684679092	Sync.Service	DEBUG	In sync: should login.
+1578684679092	Sync.Service	INFO	User logged in successfully - verifying login.
+1578684679093	Sync.BrowserIDManager	DEBUG	unlockAndVerifyAuthState has no user
+1578684679093	Sync.Status	DEBUG	Status.login: error.login.reason.no_username => error.login.reason.no_username
+1578684679093	Sync.Status	DEBUG	Status.service: service.client_not_configured => service.client_not_configured
+1578684679093	Sync.Service	DEBUG	Fetching unlocked auth state returned error.login.reason.no_username
+1578684679094	Sync.ErrorHandler	ERROR	Sync encountered a login error
+1578684679096	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1578684679096	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1578684679099	Sync.Service	DEBUG	Exception calling WrappedLock: Error: Login failed: error.login.reason.no_username (resource://services-sync/service.js:853:15) JS Stack trace: onNotify@service.js:853:15
+1578684679100	Sync.Service	DEBUG	Not syncing: login returned false.
+1578684679102	Sync.ErrorHandler	DEBUG	Addons installed: 9
+1578684679102	Sync.ErrorHandler	DEBUG	 - Custom Search Engine, version 1.6, id custom-search-engine@rsins.addons.mozilla.org
+1578684679102	Sync.ErrorHandler	DEBUG	 - Tree Style Tab, version 2.8.5, id treestyletab@piro.sakura.ne.jp
+1578684679102	Sync.ErrorHandler	DEBUG	 - Disable JavaScript, version 2.3.1, id {41f9e51d-35e4-4b29-af66-422ff81c8b41}
+1578684679102	Sync.ErrorHandler	DEBUG	 - Cookie AutoDelete, version 3.0.2, id CookieAutoDelete@kennydo.com
+1578684679102	Sync.ErrorHandler	DEBUG	 - Onglet revers pour Tree Style Tab, version 1.4.0, id {724545b6-7e17-4fa2-96e0-71eddf3c3319}
+1578684679102	Sync.ErrorHandler	DEBUG	 - Adblock Plus - bloqueur de publicités gratuit, version 3.7, id {d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}
+1578684679103	Sync.ErrorHandler	DEBUG	 - HTTPS partout, version 2019.11.7, id https-everywhere@eff.org
+1578684679103	Sync.ErrorHandler	DEBUG	 - Ghostery – Bloqueur de publicité protégeant la vie privée, version 8.4.5, id firefox@ghostery.com
+1578684679103	Sync.ErrorHandler	DEBUG	 - Tab Session Manager, version 5.2.0, id Tab-Session-Manager@sienori

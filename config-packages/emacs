@@ -1,0 +1,13 @@
+#! /bin/bash
+
+# sudo apt-get install emacs
+
+# PWD="`pwd`/config-packages"
+
+# [[ -f ~/.emacs ]] && rm ~/.emacs
+# [[ ! -h ~/.emacs ]] && ln -s $PWD/emacs_files/emacs ~/.emacs
+# if [[ $ONEUSER == 1 ]]
+# then
+#     sudo [ -f /root/.emacs ] && sudo rm /root/.emacs
+#     sudo [ ! -h /root/.emacs ] && sudo ln -s $PWD/emacs_files/emacs /root/.emacs
+# fi

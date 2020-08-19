@@ -1,0 +1,23 @@
+#! /bin/bash
+
+# sudo apt-get install firefox
+
+# firefox &
+# sleep 5
+# kill -9 $!
+
+# PWD="`pwd`/config-packages"
+
+# mv $PWD/firefox_files/profile $PWD/firefox_files/profile_tmp
+# firefox -CreateProfile "bbb $PWD/firefox_files/profile"
+# mv $PWD/firefox_files/profile_tmp $PWD/firefox_files/profile
+
+# var=`cat ~/.mozilla/firefox/profiles.ini | grep Default=`
+# sed -e "s~$var~Default=$PWD/firefox_files/profile~"  ~/.mozilla/firefox/profiles.ini > ~/.mozilla/firefox/profiles.ini.new
+# mv ~/.mozilla/firefox/profiles.ini ~/.mozilla/firefox/profiles.ini.bkp
+# mv ~/.mozilla/firefox/profiles.ini.new ~/.mozilla/firefox/profiles.ini
+
+# var=`cat ~/.mozilla/firefox/installs.ini | grep Default=`
+# sed -e "s~$var~Default=$PWD/firefox_files/profile~"  ~/.mozilla/firefox/installs.ini > ~/.mozilla/firefox/installs.ini.new
+# mv ~/.mozilla/firefox/installs.ini ~/.mozilla/firefox/installs.ini.bkp
+# mv ~/.mozilla/firefox/installs.ini.new ~/.mozilla/firefox/installs.ini

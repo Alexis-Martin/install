@@ -1,0 +1,35 @@
+1578506148842	Sync.LogManager	DEBUG	Flushing file log
+1578506148851	Sync.LogManager	DEBUG	Log cleanup threshold time: 1577642148851
+1578506148863	Sync.LogManager	DEBUG	Done deleting files.
+1578506149830	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578506151403	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578510620039	Sync.SyncScheduler	DEBUG	Network link status changed to "down". Offline?: false
+1578510620039	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1578510620040	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1578510620595	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1578510624687	Sync.SyncScheduler	DEBUG	Network link status changed to "up". Offline?: false
+1578510624687	Sync.SyncScheduler	DEBUG	Network link looks up. Syncing.
+1578510624688	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1578510624689	Sync.Service	DEBUG	User-Agent: Firefox/60.8.0 (Linux x86_64) FxSync/1.62.0.20190709221323.desktop
+1578510624690	Sync.Service	INFO	Starting sync at 2020-01-08 20:10:24 in browser session bWQYAnJjUPO0
+1578510624690	Sync.Service	DEBUG	In sync: should login.
+1578510624690	Sync.Service	INFO	User logged in successfully - verifying login.
+1578510624690	Sync.BrowserIDManager	DEBUG	unlockAndVerifyAuthState has no user
+1578510624690	Sync.Status	DEBUG	Status.login: error.login.reason.no_username => error.login.reason.no_username
+1578510624690	Sync.Status	DEBUG	Status.service: service.client_not_configured => service.client_not_configured
+1578510624691	Sync.Service	DEBUG	Fetching unlocked auth state returned error.login.reason.no_username
+1578510624692	Sync.ErrorHandler	ERROR	Sync encountered a login error
+1578510624692	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1578510624692	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1578510624694	Sync.Service	DEBUG	Exception calling WrappedLock: Error: Login failed: error.login.reason.no_username (resource://services-sync/service.js:853:15) JS Stack trace: onNotify@service.js:853:15
+1578510624694	Sync.Service	DEBUG	Not syncing: login returned false.
+1578510624695	Sync.ErrorHandler	DEBUG	Addons installed: 9
+1578510624695	Sync.ErrorHandler	DEBUG	 - Custom Search Engine, version 1.6, id custom-search-engine@rsins.addons.mozilla.org
+1578510624695	Sync.ErrorHandler	DEBUG	 - Tree Style Tab, version 2.8.5, id treestyletab@piro.sakura.ne.jp
+1578510624696	Sync.ErrorHandler	DEBUG	 - Disable JavaScript, version 2.3.1, id {41f9e51d-35e4-4b29-af66-422ff81c8b41}
+1578510624696	Sync.ErrorHandler	DEBUG	 - Cookie AutoDelete, version 3.0.2, id CookieAutoDelete@kennydo.com
+1578510624696	Sync.ErrorHandler	DEBUG	 - Onglet revers pour Tree Style Tab, version 1.4.0, id {724545b6-7e17-4fa2-96e0-71eddf3c3319}
+1578510624696	Sync.ErrorHandler	DEBUG	 - Adblock Plus - bloqueur de publicités gratuit, version 3.7, id {d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}
+1578510624696	Sync.ErrorHandler	DEBUG	 - HTTPS partout, version 2019.11.7, id https-everywhere@eff.org
+1578510624696	Sync.ErrorHandler	DEBUG	 - Ghostery – Bloqueur de publicité protégeant la vie privée, version 8.4.5, id firefox@ghostery.com
+1578510624696	Sync.ErrorHandler	DEBUG	 - Tab Session Manager, version 5.2.0, id Tab-Session-Manager@sienori
