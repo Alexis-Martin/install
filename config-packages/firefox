@@ -1,8 +1,8 @@
 #! /bin/bash
 
-# sudo apt-get install firefox
+# sudo apt-get install -y firefox > /dev/null 2>&1
 
-# firefox &
+# firefox > /dev/null 2>&1 &
 # sleep 5
 # kill -9 $!
 

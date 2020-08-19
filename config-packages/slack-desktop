@@ -1,0 +1,8 @@
+#! /bin/bash
+
+sudo apt install -y wget
+cd /tmp
+wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.8.0-amd64.deb
+sudo apt install -y ./slack-desktop-*.deb
+sudo apt-get update
+sudo apt-get upgrade -y

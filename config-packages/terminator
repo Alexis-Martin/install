@@ -1,0 +1,16 @@
+#! /bin/bash
+
+sudo apt-get install -y terminator
+
+PWD="`pwd`/config-packages"
+
+mkdir -p ~/.config/terminator
+[[ -f ~/.config/terminator/config ]] && rm ~/.config/terminator/config
+[[ ! -h  ~/.config/terminator/config ]] && ln -s $PWD/terminator_files/terminator.config ~/.config/terminator/config
+
+if [[ $ONEUSER == 1 ]]
+then
+	sudo mkdir -p /root/.config/terminator
+	sudo [ -f /root/.config/terminator/config ] && sudo rm /root/.config/terminator/config
+	sudo [ ! -h /root/.config/terminator/config ] && sudo ln -s $PWD/terminator_files/terminator.config /root/.config/terminator/config
+fi
