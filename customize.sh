@@ -108,17 +108,18 @@ then
     export PIPUNISTELLAR
 fi
 
-update system
-sudo apt-get update
-sudo apt-get upgrade -y
+# update system
+echo "Step 1 : Update system"
+sudo apt-get update > /dev/null 2>&1
+sudo apt-get upgrade -y > /dev/null 2>&1
 
-
+echo "Step 2 : install default packages and configure them"
 #install default packages
 PKGS=`cat install-packages/default-packages.list`
 
 for i in $PKGS
 do
-    sudo apt-get install -y $i
+    sudo apt-get install -y $i > /dev/null 2>&1
 done
 
 CONFS=`ls -p config-packages | grep -v /`
@@ -242,6 +243,11 @@ echo "Dpkg::Progress-Fancy 1;
 APT::Color 1;" | sudo tee /etc/apt/apt.conf.d/99progressbar > /dev/null
 
 sudo apt-file update
+
+#upgrade if some package are outdated and remove useless packages
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get autoremove -y
 
 echo "Ready!"
 # bash

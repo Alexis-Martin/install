@@ -1,3 +1,4 @@
+apt-file
 bash-completion
 firefox
 curl
@@ -34,9 +35,11 @@ pandoc
 passwd
 pv
 python
+python-venvs
 python-pip
 python2.7
 python3
+python3-venvs
 python3-pip
 rsync
 screen
