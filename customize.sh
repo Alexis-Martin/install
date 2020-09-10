@@ -129,8 +129,7 @@ do
     if [[ `echo $PKGS | grep -w "$i"` ]]
     then
         var="bash config-packages/$i"
-        eval $var
-        #> /dev/null 2>&1
+        eval $var > /dev/null 2>&1
     fi
 done
 
