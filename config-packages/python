@@ -1,6 +1,10 @@
 #! /bin/bash
 
-sudo apt-get install python python-pip python2.7 python3 python3-pip
+sudo apt-get install python
+sudo apt-get install python-pip
+sudo apt-get install python2.7
+sudo apt-get install python3
+sudo apt-get install python3-pip
 
 PWD="`pwd`/config-packages"
 
@@ -10,14 +14,29 @@ python3 -m venv ~/.venvs/python-3
 . ~/.venvs/python-3/bin/activate
 
 #install common pip
-pip install -r $PWD/python_files/requirement.txt
+PKGS=`cat $PWD/python_files/requirement.txt`
+for i in $PKGS
+do
+    n=`echo $i | sed -n -e 's/==.*//p'`
+    pip install $n
+done
 
 if [[ $PIPOPTIONAL == 1 ]]
 then
-  pip install -r $PWD/python_files/optional.txt
+    PKGS=`cat $PWD/python_files/option.txt`
+    for i in $PKGS
+    do
+        n=`echo $i | sed -n -e 's/==.*//p'`
+        pip install $n
+    done
 fi
 
 if [[ $PIPUNISTELLAR == 1 ]]
 then
-  pip install -r $PWD/python_files/unistellar.txt
+    PKGS=`cat $PWD/python_files/unistellar.txt`
+    for i in $PKGS
+    do
+        n=`echo $i | sed -n -e 's/==.*//p'`
+        pip install $n
+    done
 fi

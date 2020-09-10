@@ -130,6 +130,7 @@ do
     then
         var="bash config-packages/$i"
         eval $var
+        #> /dev/null 2>&1
     fi
 done
 
@@ -140,7 +141,7 @@ then
 
     for i in $PKGS
     do
-        sudo apt-get install -y $i
+        sudo apt-get install -y $i  > /dev/null 2>&1
     done
 
     CONFS=`ls -p config-packages | grep -v /`
@@ -150,7 +151,7 @@ then
         if [[ `echo $PKGS | grep -w "$i"` ]]
         then
             var="bash config-packages/$i"
-            eval $var
+            eval $var > /dev/null 2>&1
         fi
     done
 fi
@@ -163,7 +164,7 @@ then
 
     for i in $PKGS
     do
-        sudo apt-get install -y $i
+        sudo apt-get install -y $i  > /dev/null 2>&1
     done
 
     CONFS=`ls -p config-packages | grep -v /`
@@ -173,7 +174,7 @@ then
         if [[ `echo $PKGS | grep -w "$i"` ]]
         then
             var="bash config-packages/$i"
-            eval $var
+            eval $var > /dev/null 2>&1
         fi
     done
 fi

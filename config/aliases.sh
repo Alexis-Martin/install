@@ -204,8 +204,8 @@ function re() {
 }
 
 function setpythonenv(){
-    $name=$1
+    name=$1
     export PYTHONPATH=$PYTHONPATH:~/src/pipeline/utils/bkgSubstractor
     export JUPYTER_PATH=$JUPYTER_PATH:$HOME/src/eval
-    source ~/venvs/$name/bin/activate
+    source ~/.venvs/$name/bin/activate
 }
