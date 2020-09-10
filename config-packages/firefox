@@ -9,17 +9,18 @@ kill -9 $!
 PWD="`pwd`/config-packages"
 echo $PWD
 mv $PWD/firefox_files/profile $PWD/firefox_files/profile_tmp
-firefox -CreateProfile "bbb $PWD/firefox_files/profile"
+firefox -CreateProfile "$USER $PWD/firefox_files/profile"
+rm -r $PWD/firefox_files/profile
 mv $PWD/firefox_files/profile_tmp $PWD/firefox_files/profile
 
-id=`grep "\[*\]" installs.ini | grep -oP "[[:alnum:]]*"`
-var=`sed -n "/\[*$id\]/,/^$/p" profiles.ini | grep Default=`
+id=`grep "\[*\]" ~/.mozilla/firefox/installs.ini | grep -oP "[[:alnum:]]*"`
+var=`sed -n "/\[*$id\]/,/^$/p" ~/.mozilla/firefox/profiles.ini | grep Default=`
 echo $var
 sed -e "s~$var~Default=$PWD/firefox_files/profile~"  ~/.mozilla/firefox/profiles.ini > ~/.mozilla/firefox/profiles.ini.new
 mv ~/.mozilla/firefox/profiles.ini ~/.mozilla/firefox/profiles.ini.bkp
 mv ~/.mozilla/firefox/profiles.ini.new ~/.mozilla/firefox/profiles.ini
 
-var=`sed -n "/\[*$id\]/,/^$/p" installs.ini | grep Default=`
+var=`sed -n "/\[*$id\]/,/^$/p" ~/.mozilla/firefox/installs.ini | grep Default=`
 sed -e "s~$var~Default=$PWD/firefox_files/profile~"  ~/.mozilla/firefox/installs.ini > ~/.mozilla/firefox/installs.ini.new
 mv ~/.mozilla/firefox/installs.ini ~/.mozilla/firefox/installs.ini.bkp
 mv ~/.mozilla/firefox/installs.ini.new ~/.mozilla/firefox/installs.ini
