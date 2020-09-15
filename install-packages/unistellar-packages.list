@@ -8,3 +8,8 @@ saods9
 sextractor
 siril
 stellarium
+libopenblas-dev
+liblapack-dev
+libarpack2-dev
+libsuperlu-dev
+armadillo

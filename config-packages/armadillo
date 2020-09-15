@@ -1,0 +1,10 @@
+#! /bin/bash
+
+[[ ! -d ~/src ]] && mkdir ~/src
+[[ ! -d ~/src/armadillo-code ]] && git clone https://gitlab.com/conradsnicta/armadillo-code.git ~/src/armadillo-code
+
+cd ~/src/armadillo-code
+git checkout 9.900.x
+cmake .
+make
+sudo make install

@@ -100,7 +100,7 @@ Return a list of installed packages or nil for every skipped package."
 (menu-bar-mode -1)
 
 ;; default font size
-(set-face-attribute 'default nil :height 80)
+(set-face-attribute 'default nil :height 100)
 
 ;; default font source code
 (set-face-attribute 'default t :font "source code pro" )
