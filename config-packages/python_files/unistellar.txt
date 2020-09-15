@@ -1,5 +1,7 @@
 astropy==4.0
 astroquery==0.4
+awscli==0.3
+git-remote-codecommit==3.3
 boto3==1.11.12
 botocore==1.14.12
 flatbuffers==1.11

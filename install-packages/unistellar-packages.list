@@ -13,3 +13,4 @@ liblapack-dev
 libarpack2-dev
 libsuperlu-dev
 armadillo
+libopencv-dev

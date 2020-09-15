@@ -1,0 +1,7 @@
+#! /bin/bash
+
+if [[ ! -d /usr/include/opencv2 ]] && [[ -d /usr/include/opencv4/opencv2 ]]
+then
+  cd /usr/include
+  sudo ln -s opencv4/opencv2 opencv2
+fi
