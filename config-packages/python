@@ -29,6 +29,10 @@ then
         n=`echo $i | sed -n -e 's/==.*//p'`
         pip install $n
     done
+    #config jupyter lab
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager
+    jupyter labextension install jupyter-matplotlib
+    jupyter nbextension enable --py widgetsnbextension
 fi
 
 if [[ $PIPUNISTELLAR == 1 ]]
