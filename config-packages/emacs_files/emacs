@@ -12,7 +12,6 @@
      ;; For important compatibility libraries like cl-lib
      (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 
-
 (defun ensure-package-installed (&rest packages)
   "Assure every package is installed, ask for installation if it’s not.
 
@@ -31,8 +30,10 @@ Return a list of installed packages or nil for every skipped package."
 ;; Or use package-archive-contents as suggested by Nicolas Dudebout
 (or (file-exists-p package-user-dir)
     (package-refresh-contents))
-
-(ensure-package-installed 'company-lua 'company 'f 'ghub 'graphql 'let-alist 'lua-mode 'magit 'git-commit 'magit-popup 'dash 'monokai-theme 's 'smart-tabs-mode 'treepy 'with-editor 'async);  --> (nil nil) if iedit and magit are already installed
+    
+(package-refresh-contents)
+  
+(ensure-package-installed 'company-lua 'company 'f 'ghub 'graphql 'let-alist 'lua-mode 'magit 'git-commit 'magit-popup 'dash 'monokai-theme 's 'smart-tabs-mode 'treepy 'with-editor 'async 'elpy);  --> (nil nil) if iedit and magit are already installed
 
 
 (package-initialize)
@@ -192,3 +193,5 @@ Return a list of installed packages or nil for every skipped package."
 
 ;;add path to mu4e
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
+
+(elpy-enable)
