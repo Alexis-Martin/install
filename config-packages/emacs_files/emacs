@@ -30,9 +30,9 @@ Return a list of installed packages or nil for every skipped package."
 ;; Or use package-archive-contents as suggested by Nicolas Dudebout
 (or (file-exists-p package-user-dir)
     (package-refresh-contents))
-    
+
 (package-refresh-contents)
-  
+
 (ensure-package-installed 'company-lua 'company 'f 'ghub 'graphql 'let-alist 'lua-mode 'magit 'git-commit 'magit-popup 'dash 'monokai-theme 's 'smart-tabs-mode 'treepy 'with-editor 'async 'elpy);  --> (nil nil) if iedit and magit are already installed
 
 
@@ -195,3 +195,6 @@ Return a list of installed packages or nil for every skipped package."
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 
 (elpy-enable)
+(setenv "IPY_TEST_SIMPLE_PROMPT" "1")
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "-i")
