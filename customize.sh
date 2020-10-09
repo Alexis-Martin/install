@@ -238,6 +238,14 @@ then
     sudo [ ! -h /root/.bashrc ] && sudo ln -s $PWD/config/bashrc /root/.bashrc
 fi
 
+[ -f ~/.inputrc ] && rm ~/.inputrc
+[ ! -h ~/.inputrc ] && ln -s $PWD/config/inputrc ~/.inputrc
+if [[ $ONEUSER == 1 ]]
+then
+    sudo [ -f /root/.inputrc ] && sudo rm /root/.inputrc
+    sudo [ ! -h /root/.inputrc ] && sudo ln -s $PWD/config/inputrc /root/.inputrc
+fi
+
 #APT
 echo "Dpkg::Progress-Fancy 1;
 APT::Color 1;" | sudo tee /etc/apt/apt.conf.d/99progressbar > /dev/null
