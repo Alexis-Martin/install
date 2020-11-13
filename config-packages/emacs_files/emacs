@@ -31,8 +31,6 @@ Return a list of installed packages or nil for every skipped package."
 (or (file-exists-p package-user-dir)
     (package-refresh-contents))
 
-(package-refresh-contents)
-
 (ensure-package-installed 'company-lua 'company 'f 'ghub 'graphql 'let-alist 'lua-mode 'magit 'git-commit 'magit-popup 'dash 'monokai-theme 's 'smart-tabs-mode 'treepy 'with-editor 'async 'elpy);  --> (nil nil) if iedit and magit are already installed
 
 

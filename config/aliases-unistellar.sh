@@ -4,8 +4,8 @@ alias s3evraw='s3fs s3-evraw-us-east-1 /media/s3 -o uid=1000,gid=1000,umask=0007
 alias s3evdark='s3fs s3-darkframes-us-east-1 /media/s3_dark -o uid=1000,gid=1000,umask=0007,endpoint="eu-west-3"'
 alias as='astyle --style=mozilla --indent=tab --attach-closing-while --align-pointer=name --keep-one-line-blocks --pad-header'
 alias evbuild="./build.sh dirclean-all && ./build.sh"
-alias evrebuild="./build.sh target-clean && ./build.sh evsoft-dirclean && ./build.sh"
-alias pevrebuild="./build-prod.sh target-clean && ./build-prod.sh evsoft-dirclean && ./build-prod.sh"
+alias evrebuild="./build.sh clean && ./build.sh"
+alias pevrebuild="./build-prod.sh clean && ./build-prod.sh evsoft-dirclean && ./build-prod.sh"
 alias evinstall="./build.sh install-to-pi"
 alias devrebuild="./build-dev.sh target-clean && ./build-dev.sh evsoft-dirclean && ./build-dev.sh"
 alias evsshadd='ssh-add ~/.ssh/id_pi_rsa'
@@ -22,3 +22,12 @@ alias aulv='zmq_sub tcp://127.0.0.1:13009 | szfrm2buf | ffplay -probesize 128 -f
 alias auev='zmq_sub tcp://127.0.0.1:13009 | szfrm2buf | ffplay -probesize 128 -framerate 60/1 -fflags nobuffer -f png_pipe -'
 alias aurlv='zmq_sub tcp://127.0.0.1:13009 | szfrm2buf | tee video.h264 | ffplay -probesize 128 -framerate 60/1 -'
 alias datetoevscope='ssh evscope date -us @`( date -u +"%s" )`'
+
+function ml_server(){
+    name=$1
+    if [[ "${name,,}" == start ]]; then
+        aws ec2 start-instances --instance-ids i-08547ece8272aa0f6
+    else
+        aws ec2 stop-instances --instance-ids i-08547ece8272aa0f6
+    fi
+}

@@ -205,7 +205,11 @@ function re() {
 
 function setpythonenv(){
     name=$1
-    export PYTHONPATH=~/src/:$PYTHONPATH
+    if [[ -z $PYTHONPATH ]]; then
+        export PYTHONPATH=~/src
+    else
+        export PYTHONPATH=~/src:$PYTHONPATH
+    fi
     export JUPYTER_PATH=$HOME/src/eval:$JUPYTER_PATH
     source ~/.venvs/$name/bin/activate
 }
