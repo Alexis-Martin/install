@@ -1,5 +1,4 @@
 export EDITOR='emacs --no-window'
-alias rm='trash'
 alias ealias='emacs --no-window ~/.aliases.sh'
 alias sshlist='cat ~/.ssh/config'
 alias in='sudo apt-get install -y'
@@ -206,10 +205,9 @@ function re() {
 function setpythonenv(){
     name=$1
     if [[ -z $PYTHONPATH ]]; then
-        export PYTHONPATH=~/src
+        export PYTHONPATH=/home/common/src
     else
-        export PYTHONPATH=~/src:$PYTHONPATH
+        export PYTHONPATH=/home/common/src:$PYTHONPATH
     fi
-    export JUPYTER_PATH=$HOME/src/eval:$JUPYTER_PATH
-    source ~/.venvs/$name/bin/activate
+    source /home/common/.venv/$name/bin/activate
 }
