@@ -1,4 +1,5 @@
 export EDITOR='emacs --no-window'
+alias signal-desktop='signal-desktop --use-tray-icon'
 alias rm='trash'
 alias ealias='emacs --no-window ~/.aliases.sh'
 alias sshlist='cat ~/.ssh/config'
