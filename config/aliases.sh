@@ -1,20 +1,13 @@
 export EDITOR='emacs --no-window'
-alias signal-desktop='signal-desktop --use-tray-icon'
-alias rm='trash'
 alias ealias='emacs --no-window ~/.aliases.sh'
 alias sshlist='cat ~/.ssh/config'
-alias in='sudo apt-get install -y'
-alias out='sudo apt-get purge'
 alias q='exit'
-alias up='sudo apt-get update && sudo apt-get upgrade'
 alias d='wget -c'
 alias c='clear'
-alias cl='sudo apt-get clean;sudo apt-get -y autoremove --purge; sudo apt-get -y purge `deborphan`'
 alias m='mount | column -t'
-alias l='ls -lAh --color'
-alias sl='sudo ls -lah --color'
-alias ll='ls -lAh --color'
-alias ls='ls --color'
+alias l='ls -lAh'
+alias sl='sudo ls -lah'
+alias ll='ls -lAh'
 alias lt='ls -t'
 alias h='htop'
 alias df='df -h'
@@ -45,13 +38,10 @@ alias beep='aplay -q /usr/share/orage/sounds/Spo.wav > /dev/null 2>&1'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias .....='cd ../../../..'
 alias hs='history | tail -n50'
-alias s='sudo !!'
-alias xp='xbacklight +10'
-alias xm='xbacklight -10'
 alias dm='sudo dmesg -cHw'
 alias bw='wget http://test-debit.free.fr/image.iso -O /dev/null'
-alias sudo='sudo '
 alias n='sudo netstat -lptnu'
 alias si='sudo ifconfig'
 alias afs='apt-file search'
@@ -61,53 +51,8 @@ alias cc='sync; echo 3 | sudo tee /proc/sys/vm/drop_caches'
 alias dds='sudo pkill -USR1 dd'
 alias setenv='setpythonenv python-3'
 
-function res(){
-  if [ $6 ] ; then
-    width1="$(echo $2 | cut -dx -f1)"
-    width2="$(echo $4 | cut -dx -f1)"
-    (( width2 += width1 ))
-    xrandr --output $1 --mode $2 --pos 0x0 --output $3 --mode $4 --pos ${width1}x0 --output $5 --mode $6 --pos ${width2}x0
-  else
-    if [ $4 ] ; then
-      width="$(echo $2 | cut -dx -f1)" 
-      xrandr --output $1 --mode $2 --primary --pos 0x0 --output $3 --mode $4 --pos ${width}x0
-    else
-      if [ $2 ] ; then
-	xrandr --output $1 --mode $2
-      else
-	if [ $1 ] ; then
-	  xrandr --output eDP-1 --mode $1
-	else
-	  xrandr
-	fi
-      fi
-    fi
-  fi
-}
-
-function connect(){
-    if [ $1 ] ; then
-        sudo dhclient -v $1
-    else
-        sudo dhclient -v enx106530018c34
-    fi
-}
-
-function wifi(){
-  if [ $1 ] ; then
-    nmcli d wifi connect $1 password $2 iface wlp2s0
-  else
-    sudo iwlist wlp2s0 scan | grep ESSID
-  fi
-
-}
-
 function mkc() {
   mkdir -p $1 && cd $1
-}
-
-function debchange () {
-  zless "/usr/share/doc/$1/changelog.Debian.gz"
 }
 
 function f () {
@@ -142,25 +87,8 @@ function cz () {
   tar -I pigz -cf "`basename $1`.tar.gz" $1
 }
 
-function databackup () {
-  function exit_backup() {
-    echo "** Trapped CTRL-C"
-    sudo umount /media/backup
-  }
-  #trap exit_backup INT
-  sudo fsck -y /dev/disk/by-label/data_backup
-  sudo mount /media/backup &&\
-    rsync -av --info=progress2 --exclude 'lost+found' --exclude '.Trash-*' --delete-after /media/data/ /media/backup/ &&\
-    sync &&\
-    sudo umount /media/backup
-}
-
 function srvsave () {
   rsync --delete-after --rsync-path="sudo rsync" -aAX --info=progress2 --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} srv.sav:/ /media/data/info/os/srv-backup
-}
-
-function kc () {
-  sudo apt-get purge $(for tag in "linux-image" "linux-headers"; do dpkg-query -W -f'${Package}\n' "$tag-[0-9]*.[0-9]*.[0-9]*" | sort -V | awk 'index($0,c){exit} //' c=$(uname -r | cut -d- -f1,2); done)
 }
 
 function vl() {
@@ -171,14 +99,6 @@ function vl() {
 function la() {
   dir=$(realpath "$1")
   echo "$dir"/$(ls -t $dir | head -1)
-}
-
-function naton() {
-  sudo iptables -t nat -A POSTROUTING -o "$1" -j MASQUERADE && echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
-}
-
-function natoff() {
-  sudo iptables -t nat -D POSTROUTING -o "$1" -j MASQUERADE && echo 0 | sudo tee /proc/sys/net/ipv4/ip_forward
 }
 
 function gls() {
@@ -200,10 +120,6 @@ function servethis() {
   python2.7 -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'
 }
 
-function re() {
-  sudo ifconfig $1 down; sudo ifconfig $1 up
-}
-
 function setpythonenv(){
     name=$1
     if [[ -z $PYTHONPATH ]]; then
@@ -211,6 +127,5 @@ function setpythonenv(){
     else
         export PYTHONPATH=~/src:$PYTHONPATH
     fi
-    export JUPYTER_PATH=$HOME/src/eval:$JUPYTER_PATH
     source ~/.venvs/$name/bin/activate
 }

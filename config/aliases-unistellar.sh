@@ -1,6 +1,10 @@
+alias mnt_nas='if [ ! -e ~/nas/App ]; then
+  mount_smbfs //amartin:]FE2DStB@nas.unistellar.com/data_1 ~/nas/
+fi'
+alias mnt_nasdata='if [ ! -e ~/nasdata/data ]; then
+  mount_smbfs //amartin:]FE2DStB@nasdata.unistellar.com/data ~/nasdata/
+fi'
 alias eliasuni='emacs ~/install/config/aliases-unistellar.sh'
-alias sfrroute='echo '\''Switching to 192.168.0.254(ovh)'\''; sudo ip route del default via 192.168.0.1; sudo ip route add default via 192.168.0.254'
-alias ovhroute='echo '\''Switching to 192.168.0.1(sfr)'\''; sudo ip route del default via 192.168.0.254; sudo ip route add default via 192.168.0.1'
 alias s3evraw='s3fs s3-evraw-us-east-1 /media/s3 -o uid=1000,gid=1000,umask=0007,endpoint="eu-west-3"'
 alias s3evdark='s3fs s3-darkframes-us-east-1 /media/s3_dark -o uid=1000,gid=1000,umask=0007,endpoint="eu-west-3"'
 alias as='astyle --style=mozilla --indent=tab --attach-closing-while --align-pointer=name --keep-one-line-blocks --pad-header'

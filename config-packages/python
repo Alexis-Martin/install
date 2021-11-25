@@ -1,17 +1,7 @@
 #! /bin/bash
 
-sudo apt-get install python
-sudo apt-get install python-pip
-sudo apt-get install python2.7
-sudo apt-get install python3
-sudo apt-get install python3-pip
+PWD="`pwd`"
 
-PWD="`pwd`/config-packages"
-
-#create new env
-mkdir ~/.venvs
-python3 -m venv ~/.venvs/python-3
-. ~/.venvs/python-3/bin/activate
 
 #install common pip
 PKGS=`cat $PWD/python_files/requirement.txt`

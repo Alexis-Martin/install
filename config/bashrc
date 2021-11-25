@@ -110,12 +110,10 @@ export MANPAGER="most"
 if [ -n "$DISPLAY" ]; then
   xset b off
 fi
-export PATH=$PATH:~/.local/bin
+export PATH=/opt/homebrew/bin:/opt/homebrew/opt/make/libexec/gnubin:$HOME/.local/bin:$HOME/bin:$PATH
 
-# parse_git_branch() {
-#      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-# }
-# export PS1="\e[1m\e[92m\u@\h:\[\033[34m\]\w\e[0m]\[\033[33m\]\$(parse_git_branch)\[\033[00m\]$ "
-
-export PATH="$PATH:"/opt/microchip/xc16/v1.35/bin""
-PATH=$PATH:/home/alexis/src/toolchain_evsoft/bin
+export FASTLANE_USER="apps@unistellaroptics.com"
+export FASTLANE_PASSWORD="Rijg4iRYr9vg6zLf"
+export FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD="zjke-qjag-ertj-cdyb"
+export MATCH_PASSWORD="ptcmba51"
+export FASTLANE_SESSION='---\n- !ruby/object:HTTP::Cookie\n  name: myacinfo\n  value: DAWTKNV323952cf8084a204fb20ab2508441a07d02d3e5a4b7b30f399e2ee8e4b206c7ccf4ec325806a2cd36a8cb794a7df4920f3db1add765ccc0c4914367cc437503f35feb1b84d7033ca852332b98955a2e70e9fec096bd8a627203bab053fdcbcc587c91b59f0be29d92f028a55df61d32fafe30c35cf55bf13af4aaeccbe56e685410881526c05601fa77bd660453ab159576d626dcdfc13781de6bd744c5e35cec575f6dc2000945a5473703e0a34cb9389f6766cb27244849221452a7f76647d269733224da1c2ce709c05da2f225d083c3593751655f77fa701dd6775a5e709440152747b4b06c946430472cb22274e3c5139a7e623e7ddd9a066b230c572d2f035fbe3bd5a6bf02e3b8646c28241a6fcfa3dce9d3081966ac57e685e5b397df173802aa38071b83ccf49018dd3ef5972a51d532e8db52d7ad3b59ea2af6f3430c9850ac795127296a9e20b78fdcb7d76ab415e0d30907bad9634539a68d4be1382025767c472b26d06cae99bca45393dbceface5e11b9d46478c2dad14ac63843683f521f587d3ba052dc1977ddac938a076f06e7da7b1eaec2ef54e629f1cd903c5451b7a44ba5266c43e189e7ae528f40e71b72ab0ad1d571b8dee952a101430f5f56d44af1b3fb6341382b4cb23885ea647cfa8f490c8be8e6a99d022e8051b7300f98fc7d295943b0c00f77fd504a6721b85687aef40dc217a72f4baa889d5cdcf225984d8f697daa8bf9d1ab80402a18a08c3c37b784bb1348e4f45061fb44dd7a5fffcfb7e478c788804cb6330ce9585a47V3\n  domain: apple.com\n  for_domain: true\n  path: "/"\n  secure: true\n  httponly: true\n  expires:\n  max_age:\n  created_at: 2021-07-20 12:14:49.833672000 +02:00\n  accessed_at: 2021-07-20 12:14:49.835577000 +02:00\n- !ruby/object:HTTP::Cookie\n  name: DES551df9e41eefcb88b1bb2f2a1392a83b8\n  value: HSARMTKNSRVXWFlafrSub78ELhQjlNYeT46XIqJJYQUrg+5E+g/bB1ogS7g8Re+BaAtEOl720y3Z6QmTj1FjwpISXWxKTq69Q3qX/qH4Lhkplm/k8yHDRxWMan721N04syGKOq+jhCoi625iMjp1eIDlh6fGUdq9aVlJvzKU0VQdCtmD4bjMl+D7qZ8=SRVX\n  domain: idmsa.apple.com\n  for_domain: true\n  path: "/"\n  secure: true\n  httponly: true\n  expires:\n  max_age: 2592000\n  created_at: &1 2021-07-20 12:14:49.833631000 +02:00\n  accessed_at: *1\n- !ruby/object:HTTP::Cookie\n  name: dqsid\n  value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjY3NzYwOTAsImp0aSI6IlpIc0VmSktpYlBwcy1wSTVqR2tEb0EifQ.sfxXEFXON6n_D3QLgKq9EIrlUopaRPKCZa-RRM7bqgk\n  domain: appstoreconnect.apple.com\n  for_domain: false\n  path: "/"\n  secure: true\n  httponly: true\n  expires:\n  max_age: 1800\n  created_at: &2 2021-07-20 12:14:50.387627000 +02:00\n  accessed_at: *2\n'
