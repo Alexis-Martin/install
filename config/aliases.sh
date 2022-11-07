@@ -129,3 +129,12 @@ function setpythonenv(){
     fi
     source ~/.venvs/$name/bin/activate
 }
+
+function mount_ext4(){
+    diskutil list
+    printf '\t- choose partition to mount: '
+    read partition
+    printf '\t- choose mount point: '
+    read point
+    sudo ext4fuse /dev/$partition $point -o allow_other && echo "done"
+}
