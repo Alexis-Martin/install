@@ -110,7 +110,11 @@ export MANPAGER="most"
 if [ -n "$DISPLAY" ]; then
   xset b off
 fi
-export PATH=/opt/homebrew/bin:/opt/homebrew/opt/make/libexec/gnubin:$HOME/.local/bin:$HOME/bin:$PATH
+export PATH=/opt/homebrew/bin:/opt/homebrew/opt/make/libexec/gnubin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:/usr/local/Homebrew/bin:$PATH
+export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[[ -r "/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash" ]] && . "/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash"
 
 export FASTLANE_USER="apps@unistellaroptics.com"
 export FASTLANE_PASSWORD="Rijg4iRYr9vg6zLf"

@@ -1,0 +1,40 @@
+Host *
+    ServerAliveInterval 60
+    ServerAliveCountMax 5
+    TCPKeepAlive yes
+
+Host analytics
+    HostName hippo.local
+    User alexis
+    IdentityFile ~/.ssh/id_ed25519
+    
+Host evscope
+    HostName 192.168.100.1
+    User root
+    StrictHostKeyChecking no
+    IdentityFile ~/.ssh/id_pi_rsa
+    ServerAliveInterval 15
+
+Host odyssey-*.local
+    User root
+    StrictHostKeyChecking no
+    IdentityFile ~/.ssh/id_pi_rsa
+    ServerAliveInterval 15
+
+Host evscope-*.local
+    User root
+    StrictHostKeyChecking no
+    IdentityFile ~/.ssh/id_pi_rsa
+    ServerAliveInterval 15
+    
+Host aws-aus
+   HostName 3.24.255.165
+   User mika
+   Compression yes
+   
+Host evgw
+   HostName localhost
+   Port 22222
+   User user
+   Compression yes
+   ProxyJump aws-aus
