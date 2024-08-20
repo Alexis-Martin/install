@@ -29,6 +29,19 @@ alias aurlv='zmq_sub tcp://127.0.0.1:13009 | szfrm2buf | tee video.h264 | ffplay
 alias datetoevscope='ssh evscope date -us @`( date -u +"%s" )`'
 alias vpnuni='sudo openfortivpn marseille.unistellar.com:11443 -u amartin'
 
+function app-to-pi(){
+    app=$1
+    echo $1
+    tag=$(ssh -t analytics "cd ~/src/evbuilder/;git describe --tags --abbrev=0")
+    echo "tag is " $tag
+    ssh "root@$EVSTARGET" pkill $app
+    echo "app killed " $app
+    echo "copy ~/src/evbuilder/buildroot/output/build/evsoft-$tag/$app"
+    scp analytics:~/src/evbuilder/buildroot/output/build/evsoft-$tag/$app ~/tmp
+    scp -O ~/tmp/$app  "$EVSTARGET":/usr/bin
+    
+}
+
 function ml_server(){
     name=$1
     if [[ "${name,,}" == start ]]; then

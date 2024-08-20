@@ -7,6 +7,19 @@ Host analytics
     HostName hippo.local
     User alexis
     IdentityFile ~/.ssh/id_ed25519
+
+Host ml
+    HostName bigbaby.local
+    User alexis
+    IdentityFile ~/.ssh/id_ed25519
+    LocalForward 6006 localhost:6006
+    LocalForward 6007 localhost:6007
+    LocalForward 6008 localhost:6008
+  
+#Host gitlab.unistellar.com
+#    HostName hippo.local
+#    User alexis
+#    IdentityFile ~/.ssh/id_ed25519
     
 Host evscope
     HostName 192.168.100.1
