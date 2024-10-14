@@ -5,6 +5,7 @@ alias q='exit'
 alias d='wget -c'
 alias c='clear'
 alias m='mount | column -t'
+alias ls="ls --color"
 alias l='ls -lAh'
 alias sl='sudo ls -lah'
 alias ll='ls -lAh'
