@@ -1,8 +1,8 @@
 alias mnt_nas='if [ ! -e ~/nas/App ]; then
-  mount_smbfs //amartin:]FE2DStB@nas.unistellar.com/data_1 ~/nas/
+  mount_smbfs //amartinB@nas.unistellar.com/data_1 ~/nas/
 fi'
 alias mnt_nasdata='if [ ! -e ~/nasdata/data ]; then
-  mount_smbfs //amartin:ZMdbESnckbxw3o8@nasdata.unistellar.com/data ~/nasdata/
+  mount_smbfs //amartin@nasdata.unistellar.com/data ~/nasdata/
 fi'
 alias eliasuni='emacs ~/install/config/aliases-unistellar.sh'
 alias s3evraw='s3fs s3-evraw-us-east-1 /media/s3 -o uid=1000,gid=1000,umask=0007,endpoint="eu-west-3"'
@@ -28,6 +28,7 @@ alias aurlv='zmq_sub tcp://127.0.0.1:13009 | szfrm2buf | tee video.h264 | ffplay
 alias datetoevscope='ssh evscope date -us @`( date -u +"%s" )`'
 alias vpnuni='sudo openfortivpn marseille.unistellar.com:11443 -u amartin'
 alias downloadevsoftlog='evclient -F ../../../media/rw/evsoft.log 192.168.100.1'
+alias startdynamo="java -Djava.library.path=~/external_src/dynamodb/DynamoDBLocal_lib -jar ~/external_src/dynamodb/DynamoDBLocal.jar -dbPath ~/data -sharedDb"
 
 function aws_ssh() {
     user="ubuntu"
