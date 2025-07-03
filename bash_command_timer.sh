@@ -77,15 +77,15 @@ BCT_WRAP=0
 # Command to print out a timestamp using BCT_TIME_FORMAT. The timestamp should
 # be in seconds. This is required because the "date" command in Linux and OS X
 # use different arguments to specify the timestamp to print.
-if date +'%N' | grep -qv 'N'; then
-  BCTTime="date '+%s%N'"
-  function BCTPrintTime() {
-    date --date="@$1" +"$BCT_TIME_FORMAT"
-  }
-elif hash gdate 2>/dev/null && gdate +'%N' | grep -qv 'N'; then
+if hash gdate 2>/dev/null && gdate +'%N' | grep -qv 'N'; then
   BCTTime="gdate '+%s%N'"
   function BCTPrintTime() {
     gdate --date="@$1" +"$BCT_TIME_FORMAT"
+  }
+elif date +'%N' | grep -qv 'N'; then
+  BCTTime="date '+%s%N'"
+  function BCTPrintTime() {
+    date --date="@$1" +"$BCT_TIME_FORMAT"
   }
 elif hash perl 2>/dev/null; then
   BCTTime="perl -MTime::HiRes -e 'printf(\"%d\",Time::HiRes::time()*1000000000)'"

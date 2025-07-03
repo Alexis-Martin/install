@@ -1,4 +1,5 @@
 export EDITOR='emacs --no-window'
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 alias ealias='emacs --no-window ~/.aliases.sh'
 alias sshlist='cat ~/.ssh/config'
 alias q='exit'

@@ -3,6 +3,11 @@ Host *
     ServerAliveCountMax 5
     TCPKeepAlive yes
 
+Host evsoft-builder
+    HostName kronos.local
+    User alexis
+    IdentityFile ~/.ssh/id_ed25519
+    
 Host analytics
     HostName hippo.local
     User alexis
@@ -12,9 +17,9 @@ Host ml
     HostName bigbaby.local
     User alexis
     IdentityFile ~/.ssh/id_ed25519
-    LocalForward 6006 localhost:6006
-    LocalForward 6007 localhost:6007
-    LocalForward 6008 localhost:6008
+    LocalForward 13006 localhost:13006
+    LocalForward 13007 localhost:13007
+    LocalForward 13008 localhost:13008
   
 #Host gitlab.unistellar.com
 #    HostName hippo.local
@@ -34,16 +39,18 @@ Host odyssey-*.local
     IdentityFile ~/.ssh/id_pi_rsa
     ServerAliveInterval 15
 
-Host evscope-*.local
+Host evscope*.local
     User root
     StrictHostKeyChecking no
     IdentityFile ~/.ssh/id_pi_rsa
     ServerAliveInterval 15
-    
+
 Host aws-aus
    HostName 3.24.255.165
    User mika
+   IdentityFile ~/.ssh/id_ed25519
    Compression yes
+   ForwardAgent yes
    
 Host evgw
    HostName localhost
@@ -51,3 +58,22 @@ Host evgw
    User user
    Compression yes
    ProxyJump aws-aus
+
+Host bambipi
+     HostName bambipi.local
+     Port 22
+     User alexis
+     IdentityFile ~/.ssh/id_ed25519_perso
+
+Host evscope-evgw
+   HostName 192.168.100.1
+   User root
+   StrictHostKeyChecking no
+   ServerAliveInterval 15
+   IdentityFile ~/.ssh/id_pi_rsa
+   ProxyJump evgw
+
+Host australiepi
+    HostName australiepi.local
+    User australie
+    StrictHostKeyChecking no

@@ -1,10 +1,15 @@
 alias mnt_nas='if [ ! -e ~/nas/App ]; then
-  mount_smbfs nas.unistellar.com/data_1 ~/nas/
+      mount_smbfs //amartin@nas.unistellar.com/data_1 ~/nas/
 fi'
 alias mnt_nasdata='if [ ! -e ~/nasdata/data ]; then
-  mount_smbfs nasdata.unistellar.com/data ~/nasdata/
+  mount_smbfs //amartin@nasdata.unistellar.com/data ~/nasdata/
 fi'
-
+alias mnt_mlvic='if [ ! -e ~/ml_vic/data ]; then
+sshfs -o cipher=aes128-ctr -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,Compression=no,auto_cache,follow_symlinks victor@172.20.0.5:/home/victor/ ~/ml_vic
+fi'
+alias mnt_ml='if [ ! -e ~/ml/data ]; then
+sshfs -o cipher=aes128-ctr -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3,Compression=no,auto_cache,follow_symlinks alexis@172.20.0.5:/home/alexis/ ~/ml
+fi'
 alias eliasuni='emacs ~/install/config/aliases-unistellar.sh'
 alias s3evraw='s3fs s3-evraw-us-east-1 /media/s3 -o uid=1000,gid=1000,umask=0007,endpoint="eu-west-3"'
 alias s3evdark='s3fs s3-darkframes-us-east-1 /media/s3_dark -o uid=1000,gid=1000,umask=0007,endpoint="eu-west-3"'
@@ -53,10 +58,10 @@ function ml_server(){
 
 function evbuildpc(){
     name=$1
-    make CXXFLAGS="-std=c++17 -flto -O2 -DNMMAL" APPS="$name" DESTDIR=~ install
+    make CXXFLAGS="-std=c++17 -flto -O2 -DNDEBUG -DNMMAL" TF_INC="-Ideps/imgproc/ispnet/tensorflow/include" TF_LDFLAGS="-Ldeps/imgproc/ispnet/tensorflow/lib" APPS="$name" DESTDIR=~ install
 }
 
 function pevbuildpc(){
     name=$1
-    make CXXFLAGS="-O2 -std=c++17 -fno-rtti -flto -DNDEBUG -DNDEV -DNMMAL" APPS="$name" DESTDIR=~ install
+    make CXXFLAGS="-O2 -std=c++17 -frtti -flto -DNDEBUG -DNDEV -DNMMAL" TF_INC="-Ideps/imgproc/ispnet/tensorflow/include" TF_LDFLAGS="-Ldeps/imgproc/ispnet/tensorflow/lib" APPS="$name" DESTDIR=~ install
 }
