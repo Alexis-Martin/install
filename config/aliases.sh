@@ -1,4 +1,5 @@
 export EDITOR='emacs --no-window'
+alias openhands-cwd='uvx --python 3.13 --from openhands-ai openhands serve --mount-cwd'
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 alias ealias='emacs --no-window ~/.aliases.sh'
 alias sshlist='cat ~/.ssh/config'
@@ -139,4 +140,10 @@ function mount_ext4(){
     printf '\t- choose mount point: '
     read point
     sudo ext4fuse /dev/$partition $point -o allow_other && echo "done"
+}
+
+function convert_greek_srt() {
+    local name="$1"
+    local base="${name%.srt}"
+    iconv -f ISO-8859-7 -t UTF-8 "$name" > "${base}_linux.srt"
 }

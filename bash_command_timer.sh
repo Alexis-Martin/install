@@ -57,7 +57,7 @@ BCT_TIME_FORMAT='%b %d %R'
 # Whether to print command timings up to millisecond precision.
 #
 # If set to 0, will print up to seconds precision.
-BCT_MILLIS=1
+BCT_MILLIS=0
 
 # Wheter to wrap to the next line if the output string would overlap with
 # characters of last command's output

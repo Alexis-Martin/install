@@ -1,5 +1,6 @@
 export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
+export ANDROID_HOME=~/Library/Android/sdk
 export CLICOLOR=1
 #export LSCOLORS=GxFxCxDxBxegedabagaced
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
@@ -28,3 +29,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# >>> Codex installer >>>
+export PATH="/Users/am/.local/bin:$PATH"
+# <<< Codex installer <<<
